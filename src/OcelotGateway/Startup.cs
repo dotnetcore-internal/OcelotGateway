@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Butterfly.Client.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NLog.Extensions.Logging;
+using Ocelot.Configuration;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
@@ -26,8 +28,11 @@ namespace OcelotGateway
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			// services.AddMvc();
-
+			//services.AddButterfly(option =>
+			//{
+			//	option.CollectorUrl = "http://localhost:9618";
+			//	option.Service = "my service";
+			//});
 			services.AddOcelot(Configuration as ConfigurationRoot);
 		}
 

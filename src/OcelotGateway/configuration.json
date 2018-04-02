@@ -1,13 +1,18 @@
 ﻿{
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/sso/api/{everything}",
+      "DownstreamPathTemplate": "/sso/api/values",
       "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/sso/api/{everything}",
+      "UpstreamPathTemplate": "/sso/api/values",
       "UpstreamHttpMethod": [ "Get" ],
-      "ServiceName": "SSO",
+      "ServiceName": "TEST",
       "LoadBalancer": "LeastConnection",
-      "UseServiceDiscovery": true
+      "UseServiceDiscovery": true,
+      "HttpHandlerOptions": {
+        "AllowAutoRedirect": true,
+        "UseCookieContainer": true,
+        "UseTracing": true
+      }
     }
   ],
   "GlobalConfiguration": {
