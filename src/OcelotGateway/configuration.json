@@ -1,54 +1,19 @@
 ﻿{
-	"ReRoutes": [
-		{
-			"DownstreamPathTemplate": "/api/values",
-			"DownstreamScheme": "http",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 6001
-				}
-			],
-			"UpstreamPathTemplate": "/api/values",
-			"UpstreamHttpMethod": [ "Get" ],
-			"QoSOptions": {
-				"ExceptionsAllowedBeforeBreaking": 3,
-				"DurationOfBreak": 10,
-				"TimeoutValue": 5000
-			},
-			"HttpHandlerOptions": {
-				"AllowAutoRedirect": false,
-				"UseCookieContainer": false
-			},
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "",
-				"AllowedScopes": []
-			}
-		},
-		{
-			"DownstreamPathTemplate": "/api/values",
-			"DownstreamScheme": "http",
-			"DownstreamHostAndPorts": [
-				{
-					"Host": "localhost",
-					"Port": 6001
-				}
-			],
-			"UpstreamPathTemplate": "/api/values",
-			"UpstreamHttpMethod": [ "Get" ],
-			"QoSOptions": {
-				"ExceptionsAllowedBeforeBreaking": 3,
-				"DurationOfBreak": 10,
-				"TimeoutValue": 5000
-			},
-			"HttpHandlerOptions": {
-				"AllowAutoRedirect": false,
-				"UseCookieContainer": false
-			},
-			"AuthenticationOptions": {
-				"AuthenticationProviderKey": "",
-				"AllowedScopes": []
-			}
-		}
-	]
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/sso/api/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/sso/api/{everything}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "ServiceName": "SSO",
+      "LoadBalancer": "LeastConnection",
+      "UseServiceDiscovery": true
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500
+    }
+  }
 }

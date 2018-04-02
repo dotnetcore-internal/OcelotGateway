@@ -35,7 +35,7 @@ namespace OcelotGateway
 					conbuilder.AddJsonFile("configuration.json");
 				})
 				.UseKestrel()
-				.UseUrls("http://*:5000")
+				.UseUrls("http://*:8000")
 				.UseStartup<Startup>()
 				.Build();
 		}
